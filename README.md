@@ -1,10 +1,10 @@
-# E-Commerce_Business_Performance_Analysis
+# E-Commerce Business Performance Analysis
 
-An end-to-end Power BI analytics project analyzing transaction orders from 2021–2025 in an E-Commerce business to uncover trends in sales, profitability, customer behaviour, product performance, and operational efficiency, translating findings into actionable business recommendations.
+An end-to-end Power BI analytics project analyzing E-Commerce transaction data from 2021–2025 to uncover trends in sales, profitability, customer behaviour, product performance, and operational efficiency, translating findings into actionable business recommendations.
 
 ---
 
-📦 Table of Contents
+## 📦 Table of Contents
 
 - [Project Overview](#-project-overview)
 - [Business Objectives](#-business-objectives)
@@ -13,8 +13,8 @@ An end-to-end Power BI analytics project analyzing transaction orders from 2021�
 - [Data Preparation & Transformation](#-data-preparation--transformation)
 - [Exploratory Data Analysis (EDA)](#-exploratory-data-analysis-eda)
 - [Dashboard Structure](#-dashboard-structure)
-- [Key Business Insights](#-key-business-insights)
 - [Dashboard](#-dashboard)
+- [Key Business Insights](#-key-business-insights)
 - [Business Recommendations](#-business-recommendations)
 
 ---
@@ -24,30 +24,27 @@ This project analyses the performance of a fictitious E-commerce business using 
 
 The goal is to understand the company's overall performance, identify key trends and patterns, and uncover the factors driving business growth, profitability, customer behaviour, and operational performance.
 
-
 ---
 
 ## 🎯 Business Objectives
 
 The analysis aims to:
 
-- Evaluate overall sales and profitability performance by identifying trends in revenue, realized net profit, profit margins, order activity, and product performance over 2021–2025.
-- Identify profitable products and categories by comparing sales, quantities sold, profit, profit margins, and return activity to distinguish high-demand products from those that generate stronger financial value.
-- Assess the impact of discounting on sales and profitability to understand whether higher discounts drive additional demand at the expense of profit margins.
-- Understand customer behaviour and value by analysing customer segments, customer types, repeat purchasing, order behaviour, and customer value across different markets.
-- Evaluate marketing and acquisition performance by comparing channels based on customer acquisition, sales, profitability, and the value of customers they attract.
+- Evaluate overall sales, profitability and order performance from 2021-2025.
+- Identify high-performing and profitable products and categories.
+- Assess the relationship of discounting, sales and profitability.
+- Analyze customer behaviour, segmentation, retention and customer value.
+- Evaluate marketing and regional performance to identify growth opportunities.
 - Analyse regional and market performance to identify differences in sales, customer behaviour, and purchasing patterns across countries and regions.
-- Assess logistics and returns performance by examining delivery outcomes, return rates, return sales, and return reasons to identify potential operational challenges.
-- Identify key trends, patterns, and relationships across customers, products, sales, marketing, and operations that may explain the factors contributing to business growth or declining performance.
+- Assess logistics, cancellations and returns performance to identify operational improvement areas.
 
 ---
 
 ## 🧰 Tools & Technologies
 
-
 * Microsoft Excel - Data Preparation
   
-  * Reviewed multi-year datasets covering sales, customers, products, and operational information from 2021–2025.
+  *Data Exploration and Validation
 
 * Power Query - Data Transformation & ETL
   
@@ -56,7 +53,7 @@ The analysis aims to:
 * Power BI - Data Modeling, Analytics & Visualization
   
   * Designed the data model and relationships across Sales, Customers, Order Items, and Products, with supporting Calendar and Measures tables.
-  * Developed interactive 5-page dashboards with slicers, drill-downs, cross-filtering, and custom visual formatting.
+  * Developed a 5-page interactive dashboard with slicers, drill-downs, cross-filtering, and custom visual formatting.
 
 * DAX (Data Analysis Expressions) — Analytical Calculations
   
@@ -70,6 +67,8 @@ The analysis aims to:
 
 The dataset was sourced from Kaggle and covers E-commerce activity from 2021–2025.
 
+🔗 [View the original dataset on Kaggle](https://www.kaggle.com/datasets/datascikhan/e-commerce-sales-and-customer-analytics)
+
 ### Source Tables
 
 The analysis was built from four related source tables:
@@ -78,7 +77,7 @@ The analysis was built from four related source tables:
 |---|---|---|
 |Customers | 25,000 | Customer attributes and customer value-related information|
 |Sales | 138,116 | Order-level transactions, sales values, discounts, status, and delivery information|
-|Order Items | 387,569 | Individual products and quantities, cost, revenue and profit associated with each order|
+|Order Items | 397,569 | Individual products and quantities, cost, revenue and profit associated with each order|
 |Products | 1,175 | Product categories, subcategories, brands, costs, ratings, suppliers, and review sentiment|
 
 ### Supporting Tables
@@ -92,11 +91,10 @@ Two additional tables were created in Power BI to support the analysis:
 
 The tables are connected through key fields including Order ID, Product ID, and Customer ID. The model uses Sales as the central transaction table, with Order Items providing the link between sales transactions and product-level information.
 
-The model is a relational data model rather than a conventional star schema, reflecting the structure of the source data and the analytical requirements of the project.
-
+The model follows the relational structure of the source dataset, with Sales serving as the central order-level table and Order Items providing the product-level transaction detail. Supporting dimension tables are connected through customer, product and date keys.
 ### Data model schema:
 
-"Data Model Schema" (images/data-model.png)
+![Data Model Schema](Project%20Images/Data%20Model.png)
 
 ---
 
@@ -107,7 +105,7 @@ The source data was reviewed and prepared to improve data quality, reduce redund
 **Data Cleaning & Structuring**
 
 - Removed the Order Time field from the Sales table as it was not required for the analysis.
-- Removed customer attributes from the Sales table — including customer name, age, gender, segment, city, state, country, region, and postal code — because these attributes were already maintained in the Customer Master table. This reduced redundancy and kept customer information centralized.
+- Removed customer attributes from the Sales table (including customer name, age, gender, segment, city, state, country, region, and postal code) because these attributes were already maintained in the Customer Master table. This reduced redundancy and kept customer information centralized.
 - Preserved null values for Delivery Days and Estimated Delivery Days for cancelled orders, ensuring that cancelled orders were not incorrectly included in delivery-time calculations such as averages.
 - Standardized and corrected column data types across the Order Items, Customer Master, and Products tables.
 - Created discount bands from discount percentages to support analysis of discount levels and their relationship with sales, quantity, and profitability.
@@ -122,15 +120,15 @@ The source data was reviewed and prepared to improve data quality, reduce redund
 
 - Created a dedicated Calendar table and configured it as the model's date table to support time-intelligence calculations and consistent date-based analysis across the dashboard.
 
-**Data consideration:**
+**Business Metric Definition**
 
-The dataset contains financial values for some cancelled orders with failed payments. Therefore, both order status and payment status were considered when defining recognized/realized sales and profit to avoid overstating them.
+The dataset contains financial values for some cancelled, completed, pending, and returned orders. Therefore, both order status and payment status were considered when defining recognized/realized sales and profit to avoid overstating them.
 
 ---
 
 ## 🔎 Exploratory Data Analysis (EDA)
 
-Prior to building the data model and Power BI reporting suite, exploratory data analysis was conducted across the dataset records to assess data quality, understand field distributions, and identify relationships and patterns relevant to the business.
+Exploratory data analysis was conducted across the dataset records during data preparation and modeling to assess data quality, understand field distributions, and identify relationships and patterns relevant to the business.
 The analysis focused on:
 - Sales & profitability: Multi-year sales trends, order activity, AOV, realized profit, and profit margins.
 - Discount impact: Relationships between discount levels, quantities sold, sales, and profitability.
@@ -139,7 +137,7 @@ The analysis focused on:
 - Marketing performance: Customer acquisition, sales, and profit across marketing channels.
 - Logistics & returns: Delivery outcomes, cancellation patterns, return rates, return reasons, and shipping methods.
 - Geographic performance: Sales and customer activity across countries and regions.
-- 
+  
 ---
 
 ## 💻 Dashboard Structure
@@ -194,12 +192,34 @@ The analysis focused on:
 **5. Logistics & Returns**
 
 **Focus:** Assessing delivery performance, returns, return-related revenue impact, and operational efficiency.
+
 **Key Visuals:**
 * Order Delivery Status Breakdown
 * Return Sales & Order Return Rate by Month
 * Return Reasons
 * Country-level Return Performance
 * Shipping Method Performance
+
+---
+
+## 📊 Dashboard
+
+The Power BI dashboard consists of five interactive pages designed to provide a comprehensive view of business performance across sales, customers and marketing, products and profitability, and logistics and returns
+  
+### Dashboard 1 - Executive Overview
+![Dashboard 1](Project%20Images/Executive_Overview.png)
+
+### Dashboard 2 - Sales Performance
+![Dashboard 2](Project%20Images/Sales_Performance.png)
+
+### Dashboard 3 - Customer & Marketing Analysis
+![Dashboard 3](Project%20Images/Customer_&_Marketing_Analysis.png)
+
+### Dashboard 4 - Products & Profitability
+![Dashboard 4](Project%20Images/Products_&_Profitability.png)
+
+### Dashboard 5 - Logistics & Returns
+![Dashboard 5](Project%20Images/Logistics_&_Returns.png)
 
 ---
 
@@ -212,52 +232,38 @@ Realized net sales remained relatively stable at around $31M annually from 2021�
 
 **2. Sales Volume Does Not Always Translate to Higher Profitability**
 
-November and December recorded the highest realized net sales and quantities sold, but they also recorded the lowest profit margins across the months. In contrast, August, October and December are generally among the stronger months for realized net profit. This highlights that higher sales volume does not necessarily result in stronger profitability. Differences in product mix, pricing, discounts, and costs play an important role in monthly profit performance.
+November and December recorded the highest realized net sales and quantities sold, but they also recorded the lowest profit margins across the months. This highlights that higher sales volume does not necessarily result in stronger profitability. Differences in product mix, pricing, discounts, and costs play an important role in monthly profit performance.
 
 **3. Higher Discounts Increase Volume but Pressure Profitability**
 
-Higher discount levels are associated with lower realized net sales and profitability. November and December recorded a greater concentration of quantities sold at 30%–60% discount levels, which may help explain why their higher sales volumes did not translate into the highest profit margin. This highlights the importance of balancing sales volume with margin preservation when using discounts.
+November and December recorded a greater concentration of quantities sold at 30%–60% discount levels, which may help explain why their higher sales volumes did not translate into the highest profit margin. 
 
 **4. Product Mix and Profitability**
 
-Electronics, Jewelry, and Home Appliances consistently rank among the top-performing product categories by realized net sales and realized net profit across the five-year period. Grocery consistently records the highest profit margin year over year, generating a relatively higher proportion of profit from its realized sales. Overall profitability also varies across months, showing that volume of sales alone does not determine how much profit the business generates.
+Electronics, Jewelry, and Home Appliances consistently rank among the top-performing product categories by realized net sales and realized net profit across the five-year period. Grocery consistently records the highest profit margin year over year, generating a relatively higher proportion of profit from its realized sales. 
 
 **5. Customer Loyalty Drives Profit Contribution** 
 
-Profit margins remained relatively stable across customer types over 2021–2025, ranging from 41.43% to 42.67%. New customers recorded the highest margin at 42.67%, while Loyal customers generated the highest total realized net profit due to their greater purchasing volume. This demonstrates the difference between profitability rate and absolute profit contribution.
+New customers recorded the highest margin at 42.67%, while Loyal customers generated the highest total realized net profit due to their greater purchasing volume. This demonstrates the difference between profitability rate and absolute profit contribution.
 
 **6. Customer Segments Show Different Purchasing and Discount Behaviours**
 
-The Consumer segment contributes 55.02% of total sales, making it the largest revenue contributor with the highest LifeTimevalue. Business and Consumer customers are also major contributors to realized net profit, particularly during November and December. In contrast, Premium and VIP segments show a higher concentration of purchases at 50%–60% discounts, while Consumer and Business purchases are concentrated primarily within the 0%–20% discount range. Premium also shows relatively steady year-on-year sales growth compared with the other segments.
+The Consumer segment contributes 55.02% of total sales, making it the largest revenue contributo. Premium and VIP segments show a higher concentration of purchases at 50%–60% discounts, while Consumer and Business purchases are concentrated primarily within the 0%–20% discount range. Premium also shows relatively steady year-on-year sales growth compared with the other segments.
 
-**7. Repeat Purchasing Is Highly Concentrated**
+**7. Sales Channel and Marketing Channel**
 
-Although almost all purchasing customers are classified as repeat customers, purchasing frequency is uneven. Most customers make relatively few repeat purchases, while a smaller group accounts for much more frequent purchasing, including customers who have placed up to 10–20 orders. This suggests that customer retention is strong, but high purchase frequency is concentrated among a smaller group of customers.
+Mobile Apps sales channel drives the highest realized net sales followed by Website use. 
+Organic search marketing channel generates the highest net sales while Youtube generates the least.
 
-**8. Order Cancellations Represent a Significant Operational Issue**
+**8. Repeat Purchasing Is Highly Concentrated**
+
+Repeat purchasing is widespread, but purchasing frequency is concentrated. Alhtough most purchasing customers have made repeat purchases, the number of orders per customer is unevenly distributed, with a smaller group accounting for substantially more frequent purchasing.
+
+**9. Order Cancellations Represent a Significant Operational Issue**
 
 Approximately 17.78% of orders were cancelled. The recorded cancellation reasons include wrong product, other, changed mind, size issue, defective product, late delivery, product not as expected, and damaged product. The presence of product-related and fulfilment-related cancellation reasons highlights opportunities to improve product information, order accuracy, quality control, and delivery processes to reduce avoidable cancellations.
 
 ---
-
-## 📊 Dashboard
-
-The Power BI dashboard consists of five interactive pages designed to provide a comprehensive view of business performance across sales, customers and marketing, products and profitability and logistics and returns
-  
-### Dashboard 1 - Executive Overview
-![Dashboard 1]()
-
-### Dashboard 2 - Sales Performance
-![Dashboard 2]()
-
-### Dashboard 3 - Customer & Marketing Analysis
-![Dashboard 3]()
-
-### Dashboard 4 - Products & Profitability
-![Dashboard 4]()
-
-### Dashboard 5 - Logistics & Returns
-![Dashboard 5]()
 
 ## 💡 Business Recommendations
 
@@ -273,11 +279,11 @@ Electronics, Jewelry, and Home Appliances consistently contribute strongly to re
 
 **3. Increase Customer Purchase Frequency**
 
-The customer order-count distribution shows that while many customers make repeat purchases, frequent purchasing is concentrated among a smaller group of customers. The business should use targeted retention, personalized offers, cross-selling, and reactivation campaigns to encourage lower-frequency customers especially those that have purchased once to purchase more often.
+The business should use targeted retention, personalized offers, cross-selling, and reactivation campaigns to encourage lower-frequency customers especially those that have purchased once to purchase more often.
 
 **4. Evaluate Discount Strategies by Customer Segment**
 
-Premium and VIP customers show a higher concentration of purchases at 50%–60% discounts, while Consumer and Business customers are more concentrated at 0%–20% discounts. The business should evaluate discount performance within each segment to determine where higher discounts generate sufficient additional sales and where lower discounts may be sufficient to maintain demand and protect profit margins.
+The business should evaluate discount performance within each segment to determine where higher discounts generate sufficient additional sales and where lower discounts may be sufficient to maintain demand and protect profit margins.
 
 **5. Reduce Preventable Order Cancellations**
 
@@ -289,4 +295,4 @@ The U.S. remains the dominant market, but its declining realized net sales contr
 
 **7. Focus on Sustainable Revenue Growth**
 
-Realized net sales remained relatively stable at around $31M annually but showed a gradual decline from 2021 to 2025. Growth strategies should focus not only on increasing sales volume, but also on increasing customer purchase frequency, improving customer value, reducing avoidable cancellations, and protecting profit margins.
+Growth strategies should focus not only on increasing sales volume, but also on increasing customer purchase frequency, improving customer value, reducing avoidable cancellations, and protecting profit margins.

@@ -20,7 +20,7 @@ An end-to-end Power BI analytics project analyzing E-Commerce transaction data f
 ---
  
 ## 📝 Project Overview
-This project analyses the performance of a fictitious E-commerce business using data covering 2021–2025. The dashboard provides a comprehensive view of Sales Performance, Products & Profitability, Customer & Marketing, and Logistics & Returns, supported by a concise yet insightful Executive Overview.
+This project analyses the performance of a E-commerce business using data covering 2021–2025. The dashboard provides a comprehensive view of Sales Performance, Products & Profitability, Customer & Marketing, and Logistics & Returns, supported by a concise yet insightful Executive Overview.
 
 The goal is to understand the company's overall performance, identify key trends and patterns, and uncover the factors driving business growth, profitability, customer behaviour, and operational performance.
 
@@ -44,7 +44,7 @@ The analysis aims to:
 
 * Microsoft Excel - Data Preparation
   
-  *Data Exploration and Validation
+  * Data Exploration and Validation
 
 * Power Query - Data Transformation & ETL
   
@@ -120,9 +120,9 @@ The source data was reviewed and prepared to improve data quality, reduce redund
 
 - Created a dedicated Calendar table and configured it as the model's date table to support time-intelligence calculations and consistent date-based analysis across the dashboard.
 
-**Business Metric Definition**
+**Business Logic and Sales Recognition**
 
-The dataset contains financial values for some cancelled, completed, pending, and returned orders. Therefore, both order status and payment status were considered when defining recognized/realized sales and profit to avoid overstating them.
+The dataset contains financial values for some canceled, completed, pending, and returned orders. To prevent overstating financial performance, revenue and profit are filtered using both order status and payment status. Only orders marked as completed with successful payment are categorized as realized sales and profit. Canceled, Returned and Pending orders are excluded from top-line performance metrics
 
 ---
 
@@ -244,15 +244,16 @@ Electronics, Jewelry, and Home Appliances consistently rank among the top-perfor
 
 **5. Customer Loyalty Drives Profit Contribution** 
 
-New customers recorded the highest margin at 42.67%, while Loyal customers generated the highest total realized net profit due to their greater purchasing volume. This demonstrates the difference between profitability rate and absolute profit contribution.
+New customers recorded the highest profit margin at 42.67%, while Loyal customers generated the highest total realized net profit due to their greater purchasing volume. This demonstrates the difference between profitability rate and absolute profit contribution.
 
 **6. Customer Segments Show Different Purchasing and Discount Behaviours**
 
-The Consumer segment contributes 55.02% of total sales, making it the largest revenue contributo. Premium and VIP segments show a higher concentration of purchases at 50%–60% discounts, while Consumer and Business purchases are concentrated primarily within the 0%–20% discount range. Premium also shows relatively steady year-on-year sales growth compared with the other segments.
+The Consumer segment contributes 55.02% of total sales, making it the largest revenue contributor. Premium and VIP segments show a higher concentration of purchases at 50%–60% discounts, while Consumer and Business purchases are concentrated primarily within the 0%–20% discount range. Premium also shows relatively steady year-on-year sales growth compared with the other segments.
 
 **7. Sales Channel and Marketing Channel**
 
-Mobile Apps sales channel drives the highest realized net sales followed by Website use. 
+Mobile Apps sales channel drives the highest realized net sales followed by Website use.
+
 Organic search marketing channel generates the highest net sales while Youtube generates the least.
 
 **8. Repeat Purchasing Is Highly Concentrated**

@@ -122,7 +122,7 @@ The source data was reviewed and prepared to improve data quality, reduce redund
 
 **Business Logic and Sales Recognition**
 
-The dataset contains financial values for some canceled, completed, pending, and returned orders. To prevent overstating financial performance, revenue and profit are filtered using both order status and payment status. Only orders marked as completed with successful payment are categorized as realized sales and profit. Canceled, Returned and Pending orders are excluded from top-line performance metrics
+The dataset contains financial values for some cancelled, completed, pending, and returned orders. To prevent overstating financial performance, revenue and profit are filtered using both order status and payment status. Only orders marked as completed with successful payment are categorized as realized sales and profit. Cancelled, Returned and Pending orders are excluded from top-line performance metrics
 
 ---
 

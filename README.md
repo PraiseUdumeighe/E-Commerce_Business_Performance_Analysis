@@ -234,17 +234,18 @@ Realized net sales remained relatively stable at around $31M annually from 2021�
 
 November and December recorded the highest realized net sales and quantities sold, but they also recorded the lowest profit margins across the months. This highlights that higher sales volume does not necessarily result in stronger profitability. Differences in product mix, pricing, discounts, and costs play an important role in monthly profit performance.
 
-**3. Higher Discounts Increase Volume but Pressure Profitability**
+**3. Higher Discounts Are Associated with Lower Profitability and Sales Volume**
 
-November and December recorded a greater concentration of quantities sold at 30%–60% discount levels, which may help explain why their higher sales volumes did not translate into the highest profit margin. 
+Profitability declines as discount levels increase, while quantity sold peaks at 10% discount and falls substantially across the higher discount bands.
+November and December recorded a higher combined share of quantities sold within the 30%–60% discount range, coinciding with their high overall sales volumes.
 
 **4. Product Mix and Profitability**
 
 Electronics, Jewelry, and Home Appliances consistently rank among the top-performing product categories by realized net sales and realized net profit across the five-year period. Grocery consistently records the highest profit margin year over year, generating a relatively higher proportion of profit from its realized sales. 
 
-**5. Customer Loyalty Drives Profit Contribution** 
+**5. Customer Loyalty and Profit Contribution**
 
-New customers recorded the highest profit margin at 42.67%, while Loyal customers generated the highest total realized net profit due to their greater purchasing volume. This demonstrates the difference between profitability rate and absolute profit contribution.
+Customers classified as New recorded the highest profit margin at 42.67%, while Loyal customers generated the highest total realized net profit alongside greater purchasing volume. This highlights the difference between profitability rate and absolute profit contribution.
 
 **6. Customer Segments Show Different Purchasing and Discount Behaviours**
 
@@ -256,9 +257,9 @@ Mobile Apps sales channel drives the highest realized net sales followed by Webs
 
 Organic search marketing channel generates the highest net sales while Youtube generates the least.
 
-**8. Repeat Purchasing Is Highly Concentrated**
+**8. Repeat Purchasing And Order Count**
 
-Repeat purchasing is widespread, but purchasing frequency is concentrated. Alhtough most purchasing customers have made repeat purchases, the number of orders per customer is unevenly distributed, with a smaller group accounting for substantially more frequent purchasing.
+Repeat customers account for 98.66% of Purchasing Customers indicating that most customers made more than one purchase. However order counts are unevenly distributed: while customer order count ranges from 1 to 20, only 8.26% of purchasing customers have placed 10-20 orders.
 
 **9. Order Cancellations Represent a Significant Operational Issue**
 
@@ -272,7 +273,7 @@ Based on the analysis, the following actions could help improve profitability, c
 
 **1. Review High-Discount Strategies**
 
-Higher discount levels are associated with increased quantities sold but lower profit margins. The business should evaluate whether discounts above 30% generate sufficient sales volume to justify the reduction in margins, particularly during high-volume periods such as November and December.
+Historical analysis shows that profit generally decline across higher discount bands, while quantity sold peaks at 10% discount and decreases substantially at higher levels. Review higher discount levels selectively considering both sales volume and profitability
 
 **2. Optimize the Product Mix**
 

@@ -50,7 +50,7 @@ The analysis aims to:
 
 * Power Query - Data Transformation & ETL
   
-  * Cleaned, transformed, and structured data from multiple related tables, including handling missing values and preparing fields for analysis.
+  * Cleaned, transformed, and structured data from multiple related tables and prepared fields for analysis.
 
 * Power BI - Data Modeling, Analytics & Visualization
   
@@ -67,7 +67,7 @@ The analysis aims to:
 
 ### Data Source
 
-The dataset was sourced from Kaggle and covers E-commerce activity from 2021–2025.
+The dataset was sourced from Kaggle and covers e-commerce activity from 2021–2025.
 
 🔗 [View the original dataset on Kaggle](https://www.kaggle.com/datasets/datascikhan/e-commerce-sales-and-customer-analytics)
 
@@ -136,7 +136,7 @@ To ensure that the analysis reflects realized business performance rather than a
 | Metric                        | Definition & Business Logic|
 |-----------------------------|-----------------------------|
 | **Realized Net Sales**        | Revenue from orders classified as Completed and therefore delivered.|
-| **Realized Net Profit**       | Profit value provided in the dataset for the applicable transactions.|
+| **Realized Net Profit**       | Profit value from orders classified as Completed|
 | **Profit Margin**             | Realized Net Profit relative to Realized Net Sales.|
 | **Completed Orders**          | Orders with a **Completed** order status.|
 | **Quantity Sold**             | Quantity from the Order Items table associated with Completed orders.|
@@ -145,26 +145,37 @@ To ensure that the analysis reflects realized business performance rather than a
 | **Repeat Customer Rate**      | Proportion of purchasing customers identified as repeat customers.|
 | **Average Customer Revenue**  | Average realized revenue generated per purchasing customer.|
 
-**Sales Recognition and Business Logic**
+### Sales Recognition and Business Logic
 
-The dataset includes orders with statuses of Completed, Returned, Cancelled, and Pending. Realized sales and profit are based on orders marked as completed with successful payment. Realized Net Sales uses the dataset's `net_sales` field under these sales-recognition criteria. Cancelled and pending orders are excluded from realized performance metrics, while returns are analyzed separately through return status and return-related metrics.
+The dataset includes orders with *Completed, Returned, Cancelled, and Pending* order statuses. For this analysis, *Completed orders were used as the basis for realized sales and realized net profit*, as these orders represent transactions that were successfully delivered.
+
+Payment status was not used as an additional sales-recognition criterion, as Completed orders could have a payment status of either Paid or Pending.
+
+Orders with *Pending, Returned, or Cancelled* status had a *Cancelled Delivery Status* and no recorded Delivery Days and were excluded from realized sales and profit metrics. Returned orders were analyzed separately using return status and related return metrics.
+
 
 ---
 
 ## 🔎 Exploratory Data Analysis (EDA)
 
-Exploratory data analysis was conducted across the dataset during data preparation and modeling to assess data quality, understand field distributions, and identify relationships and patterns relevant to the business.
+Exploratory data analysis was conducted after data preparation and validation to understand variable distributions, identify relationships and patterns, and uncover business trends relevant to the analysis.
 
 The analysis focused on:
 
-* **Sales & profitability:** Multi-year sales trends, order activity, AOV, realized gross profit, and gross profit margins.
-* **Discounts:** Relationships between discount levels, quantities sold, sales, and profitability.
-* **Product performance:** Category and subcategory differences in sales, quantity, gross profit, margins, and returns.
-* **Customer behavior:** Customer types, segments, customer order counts, repeat purchasing, and customer value.
-* **Marketing channels:** Customer counts, sales, and gross profit across marketing channels.
-* **Logistics & returns:** Delivery outcomes, cancellation patterns, return rates, return reasons, and shipping methods.
-* **Geographic performance:** Sales and customer activity across countries and regions.
-  
+* **Sales & profitability:** Examined multi-year and monthly sales trends, order activity, quantity sold, AOV, profit, profit margins, and product costs to understand changes in revenue and profitability over time.
+
+* **Discounts:** Explored discount distributions and their relationship with quantities sold, sales, and profitability across discount bands.
+
+* **Product performance:** Compared categories and subcategories based on realized sales, quantities sold, product costs, gross profit, margins, and returns to identify differences in product contribution and profitability.
+
+* **Customer behavior:** Examined customer types, customer segments, order counts, repeat purchasing, and customer value to understand purchasing patterns and differences in profitability.
+
+* **Marketing channels:** Compared customer counts, realized sales, and gross profit across marketing channels to identify differences in channel contribution.
+
+* **Logistics & returns:** Analyzed delivery outcomes, delivery cancellations, return rates, return reasons, and shipping methods to identify operational and customer-service patterns.
+
+* **Geographic performance:** Examined sales and customer activity across countries and regions to identify major markets and geographic differences in business contribution.
+
 ---
 
 ## 💻 Dashboard Structure
@@ -195,7 +206,7 @@ The analysis focused on:
 
 **3. Customer & Marketing Analysis**
 
-**Focus:** Understanding customer behaviour, customer value, segmentation, and marketing performance.
+**Focus:** Understanding customer behaviour, customer value, segmentation, and marketing channel contribution.
 
 **Key Visuals:**
 * KPI cards: Total Customers, Purchasing Customers, Repeat Customer Rate, and Average Customer Revenue
@@ -260,12 +271,11 @@ Realized net sales averaged approximately $31.36M annually from 2021–2025 but 
 
 **2. Sales Volume Does Not Always Translate to Higher Profitability**
 
-November and December recorded the highest realized net sales and quantities sold, but they also recorded the lowest profit margins across the months. This highlights that higher sales volume does not necessarily result in stronger profitability. Differences in product mix, pricing, discounts, and costs play an important role in monthly profit performance.
+November and December recorded the highest realized net sales and quantities sold, but they also recorded the highest product costs and the lowest profit margins across the months. The higher sales volume was therefore accompanied by higher product costs, highlighting that increased sales volume does not necessarily result in stronger profitability. Differences in product mix, pricing, discounts, and costs play an important role in monthly profit performance.
 
 **3. Higher Discounts Are Associated with Lower Profitability and Sales Volume**
 
-Profitability declines as discount levels increase, while quantity sold peaks at 10% discount and falls substantially across the higher discount bands.
-November and December recorded a higher combined share of quantities sold within the 30%–60% discount range, coinciding with their high overall sales volumes.
+Profitability declines as discount levels increase, while quantity sold peaks at the 10% discount band and falls substantially across the higher discount bands. November and December also recorded a higher combined share of quantities sold within the 30%–60% discount range, coinciding with their high overall sales volumes.
 
 **4. Product Mix and Profitability**
 
@@ -277,13 +287,13 @@ Customers classified as New recorded the highest profit margin at 42.67%, while 
 
 **6. Customer Segments Show Different Purchasing and Discount Behaviours**
 
-The Consumer segment contributes 55.02% of total sales, making it the largest revenue contributor. Premium and VIP segments show a higher concentration of purchases at 50%–60% discounts, while Consumer and Business purchases are concentrated primarily within the 0%–20% discount range. Premium also shows relatively steady year-on-year sales growth compared with the other segments.
+The Consumer segment contributes 55.02% of total sales, making it the largest contributor to realized net sales. Premium and VIP segments show a higher concentration of purchases at 50%–60% discounts, while Consumer and Business purchases are concentrated primarily within the 0%–20% discount range. Premium also shows relatively steady year-on-year sales growth compared with the other segments.
 
 **7. Sales Channel and Marketing Channel**
 
-Mobile Apps sales channel drives the highest realized net sales followed by Website use.
+Mobile Apps recorded the highest realized net sales among sales channels, followed by Website.
 
-Organic Search was associated with the highest number of customers and recorded the highest realized net sales and realized net profit among marketing channels, while YouTube recorded the lowest realized net sales.
+Organic Search was associated with the highest number of customers and recorded the highest realized net sales and realized net profit among marketing channels, while YouTube recorded the lowest realized net sales and realized net profit.
 
 **8. Repeat Purchasing And Order Count**
 
@@ -291,7 +301,7 @@ Repeat customers account for 98.66% of Purchasing Customers indicating that most
 
 **9. Delivery Order Cancellations Represent a Significant Operational Issue**
 
-Approximately 17.78% of delivery orders were cancelled. The recorded cancellation reasons include wrong product, other, changed mind, size issue, defective product, late delivery, product not as expected, and damaged product. The presence of product-related and fulfilment-related cancellation reasons highlights opportunities to improve product information, order accuracy, quality control, and delivery processes to reduce avoidable cancellations.
+Approximately 17.78% of orders had a Cancelled delivery status. The recorded cancellation reasons include wrong product, other, changed mind, size issue, defective product, late delivery, product not as expected, and damaged product. The presence of product-related and fulfilment-related cancellation reasons highlights opportunities to improve product information, order accuracy, quality control, and delivery processes to reduce avoidable cancellations.
 
 ---
 
@@ -338,8 +348,7 @@ The analysis is subject to the following dataset limitations:
 
 * **Synthetic/Simulated Data:** The dataset is designed for analytical purposes rather than representing a verified real-world company's complete operational records. Findings should therefore be interpreted as analytical results rather than actual company performance.
 
-* **Profit Scope:** The dataset includes product and shipping costs but does not provide a complete set of operating expenses, such as marketing, payroll, warehousing, or administrative costs. Therefore, profit and margin measures reflect the costs captured in the dataset rather than full business net income.
+* **Profit Scope:** The dataset includes product and shipping costs but does not provide a complete set of operating expenses, such as marketing, payroll, warehousing, or administrative costs. Therefore, profit measures reflect the values captured in the dataset rather than full business net income.
 
 * **Incomplete Marketing Data:** Some campaign-name records are blank, limiting campaign-level analysis. Coupon codes are also blank in the available data and could not be used for coupon-level analysis.
 
-* **Customer Review Data:** Some customer review fields are blank, limiting the completeness of review-based analysis and the ability to incorporate customer feedback across all transactions.

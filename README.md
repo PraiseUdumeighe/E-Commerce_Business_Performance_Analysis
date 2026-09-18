@@ -1,6 +1,6 @@
 # E-Commerce Business Performance Analysis
 
-An end-to-end Power BI analytics project analyzing e-commerce transaction data from 2021–2025 to uncover trends in sales, profitability, customer behaviour, product performance, and operational efficiency, translating findings into actionable business recommendations.
+An end-to-end Power BI analytics project analyzing e-commerce transaction data from 2021–2025 to uncover trends in sales, profitability, customer behaviour, product performance, and operational performance, with findings translated into actionable business recommendations.
 
 ---
 
@@ -185,6 +185,7 @@ The analysis focused on:
 **Focus:** High-level view of overall business performance and key trends.
 
 **Key Visuals:**
+
 * KPI cards: Order Completion %, Realized Net Sales, Realized Net Profit, Profit Margin, Sales YoY, and Order Return Rate
 * Realized Net Sales by Month
 * Order Status Distribution
@@ -196,7 +197,8 @@ The analysis focused on:
 **Focus:** Analysis of sales activity, order performance, customer purchasing, and the impact of discounts.
 
 **Key Visuals:**
-* KPI cards: Total Orders, Completed Orders, Quantities Sold, and Average Order Value
+
+* KPI cards: Total Orders, Completed Orders, Quantity Sold, and Average Order Value
 * Realized Net Sales by Period with drill-down
 * Realized Net Sales by Location with geographic drill-down
 * Discount Impact on Sales Volume and Profitability
@@ -209,19 +211,21 @@ The analysis focused on:
 **Focus:** Understanding customer behaviour, customer value, segmentation, and marketing channel contribution.
 
 **Key Visuals:**
+
 * KPI cards: Total Customers, Purchasing Customers, Repeat Customer Rate, and Average Customer Revenue
-* Marketing Channel Performance
+* Marketing Channel Contribution
 * Realized Net Sales & Profit by Marketing Channel
 * Realized Net Sales by Gender
 * Customer Order Size Distribution
-* Customer Segment Value and Acquisition
+* Customer Segment Value and Acquisition Costs
 * Profit Margin by Customer Type
 
 **4. Products & Profitability**
-   
+
 **Focus:** Evaluating product demand, profitability, margins, and return performance across product categories.
 
 **Key Visuals:**
+
 * Realized Net Sales & Profit by Product Category and Subcategory
 * Realized Net Profit by Month
 * Profit Margin by Month
@@ -229,9 +233,10 @@ The analysis focused on:
 
 **5. Logistics & Returns**
 
-**Focus:** Assessing delivery performance, returns, return-related revenue impact, and operational efficiency.
+**Focus:** Assessing delivery performance, returns, and operational performance.
 
 **Key Visuals:**
+
 * Order Delivery Status Breakdown
 * Return Sales & Order Return Rate by Month
 * Return Reasons

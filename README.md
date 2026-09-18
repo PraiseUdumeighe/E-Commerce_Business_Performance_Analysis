@@ -114,7 +114,7 @@ The source data was reviewed and prepared to improve data quality, reduce redund
 * Removed customer attributes from the Sales table (including customer name, age, gender, segment, city, state, country, region, and postal code) because these attributes were already maintained in the Customer Master table. This reduced redundancy and kept customer information centralized.
 * Preserved null values for `delivery_days` and `estimated_delivery_days` for orders that were not completed, since delivery did not occur for these orders. This prevented non-delivered orders from being incorrectly included in delivery-time calculations such as averages.
 * Standardized and corrected column data types across the Order Items, Customer Master, and Products tables.
-* Created discount bands from discount percentages to support analysis of discount levels and their relationship with sales, quantity, and profitability.
+* Created discount bands from discount percentages to support analysis of discount levels and their relationship with sales quantity, and profitability.
 
 **Data Quality & Validation**
 
@@ -125,7 +125,7 @@ The source data was reviewed and prepared to improve data quality, reduce redund
 
 **Time Intelligence**
 
-* Created a dedicated Calendar table and configured it as the model's date table to support time-intelligence calculations and consistent date-based analysis across the dashboard.
+* Created a Calendar table and configured it as the model's date table to support time-intelligence calculations and consistent date-based analysis across the dashboard.
 
 ---
 
@@ -147,9 +147,9 @@ To ensure that the analysis reflects realized business performance rather than a
 
 ### Sales Recognition and Business Logic
 
-The dataset includes orders with *Completed, Returned, Cancelled, and Pending* order statuses. For this analysis, *Completed orders were used as the basis for realized sales and realized net profit*, as these orders represent transactions that were successfully delivered.
+The dataset includes orders with *Completed, Returned, Cancelled, and Pending* order statuses. For this analysis, *Completed orders were used as the basis for realized net sales and realized net profit*, as these orders represent transactions that were successfully delivered.
 
-Payment status was not used as an additional sales-recognition criterion, as Completed orders could have a payment status of either Paid or Pending.
+Payment status was not used as an additional sales-recognition criterion, as Completed orders had a payment status of either Paid or Pending.
 
 Orders with *Pending, Returned, or Cancelled* status had a *Cancelled Delivery Status* and no recorded Delivery Days and were excluded from realized sales and profit metrics. Returned orders were analyzed separately using return status and related return metrics.
 
@@ -268,10 +268,9 @@ The Power BI dashboard consists of five interactive pages designed to provide a 
 
 Realized net sales averaged approximately $31.36M annually from 2021–2025 but declined by 2.48%, from $31.85M in 2021 to $31.06M in 2025. The U.S. market, the largest contributor to realized net sales, declined from $18.33M in 2021 to $17.88M in 2025, a 2.45% decrease. This represented approximately 57% of the overall $0.79M decline in realized net sales over the period.
 
+**2. Seasonal Sales Volume Does Not Always Translate to Higher Profitability**
 
-**2. Sales Volume Does Not Always Translate to Higher Profitability**
-
-November and December recorded the highest realized net sales and quantities sold, but they also recorded the highest product costs and the lowest profit margins across the months. The higher sales volume was therefore accompanied by higher product costs, highlighting that increased sales volume does not necessarily result in stronger profitability. Differences in product mix, pricing, discounts, and costs play an important role in monthly profit performance.
+November and December consistently recorded the highest realized net sales and quantities sold across 2021–2025, indicating a recurring seasonal sales pattern. However, these months also recorded the highest product costs and the lowest profit margins. The higher seasonal sales volume was therefore accompanied by higher product costs, highlighting that increased sales volume does not necessarily result in stronger profitability. Differences in product mix, pricing, discounts, and costs play an important role in monthly profit performance.
 
 **3. Higher Discounts Are Associated with Lower Profitability and Sales Volume**
 
@@ -309,34 +308,34 @@ Approximately 17.78% of orders had a Cancelled delivery status. The recorded can
 
 Based on the analysis, the following actions could support profitability, customer value, revenue growth, and operational performance:
 
-**1. Evaluate High-Discount Strategies**
+**1. Review High-Discount Strategies**
 
-Higher discount bands are associated with lower profitability, while quantity sold peaks at the 10% discount band and declines at higher discount levels. The business should evaluate discount levels alongside sales volume, gross profit, and gross profit margin to determine whether additional volume compensates for reduced margins.
+Higher discount bands are associated with lower profitability, while quantity sold peaks at the 10% discount band and declines at higher discount levels. The business should review its discount tiers and test lower-discount alternatives at higher discount levels, while monitoring quantity sold, realized net sales, and profit margin to determine whether additional sales volume justifies the reduction in profitability.
 
 **2. Optimize the Product Mix**
 
-Electronics, Jewelry, and Home Appliances contribute strongly to realized gross profit, while Grocery records the highest gross profit margin. The business should evaluate product mix, pricing, costs, and assortment across categories to identify opportunities to strengthen both profit contribution and margins.
+Electronics, Jewelry, and Home Appliances contribute strongly to realized net profit, while Grocery records the highest profit margin. The business should review category-level sales, product costs, pricing, and margins to identify opportunities to optimize the product mix, improve overall profitability, and protect margins.
+
 
 **3. Increase Customer Purchase Frequency**
 
-The business should use targeted retention, personalized offers, cross-selling, and reactivation strategies to encourage lower-frequency customers, particularly those with only one purchase, to purchase more frequently.
+The business should use targeted retention, personalized offers, cross-selling, and reactivation strategies to encourage lower-frequency customers, particularly those with only one purchase, to make additional purchases and increase their purchase frequency.
 
 **4. Evaluate Discount Strategies by Customer Segment**
 
-The business should evaluate how discount levels relate to sales volume and profitability across customer segments, such as Consumer, Premium, VIP, and Business. This can help identify whether different segments respond differently to discounts and where discounting may be adjusted to support sales while protecting profit margins.
+Discount behavior varies across customer segments, with Premium and VIP purchases showing a higher concentration at 50%–60% discounts, while Consumer and Business purchases are more concentrated at lower discount levels. The business should evaluate discount levels by customer segment and test targeted discount strategies, while monitoring sales volume and profit margin to determine where discounting can support sales without unnecessarily reducing profitability.
 
 **5. Reduce Preventable Delivery Cancellations**
 
-Approximately 17.78% of orders had a **Cancelled delivery status**. The business should investigate the reasons associated with these delivery cancellations, particularly product, quality, and fulfilment-related issues where applicable. Improving product information, order accuracy, quality checks, and fulfilment processes could help reduce avoidable delivery cancellations and improve the customer experience.
-
+Approximately 17.78% of orders had a **Cancelled delivery status**. The business should prioritize improvements in product information, order accuracy, quality checks, and fulfilment processes where these issues are associated with preventable delivery cancellations. Monitoring the delivery cancellation rate can help assess the impact of these improvements and support a better customer experience.
 
 **6. Protect Major Markets and Develop Growth Opportunities**
 
-The U.S. remains the largest contributor to realized net sales, but its 2.45% decline from 2021 to 2025 accounted for approximately 57% of the overall decline in realized net sales over the period. The business should investigate the factors associated with this decline while evaluating opportunities in smaller markets to diversify revenue sources.
+The U.S. remains the largest contributor to realized net sales, but its 2.45% decline from 2021 to 2025 accounted for approximately 57% of the overall decline in realized net sales over the period. The business should strengthen retention and revenue-generation initiatives in the U.S. while developing opportunities in smaller markets to diversify revenue sources and reduce reliance on its largest market.
 
 **7. Focus on Sustainable Revenue Growth**
 
-Growth strategies should focus not only on increasing sales volume, but also on increasing customer purchase frequency, improving customer value, reducing avoidable cancellations, and protecting profit margins.
+Growth strategies should focus not only on increasing sales volume, but also on increasing customer purchase frequency, improving customer value, reducing avoidable delivery cancellations, and protecting profit margins. These areas can help support revenue growth while maintaining profitability and customer value.
 
 ---
 
@@ -348,7 +347,8 @@ The analysis is subject to the following dataset limitations:
 
 * **Synthetic/Simulated Data:** The dataset is designed for analytical purposes rather than representing a verified real-world company's complete operational records. Findings should therefore be interpreted as analytical results rather than actual company performance.
 
+* **Product-Level Analysis:** Product names in the dataset are lengthy and highly detailed, making product-level visualization and comparison impractical. As a result, the analysis focuses primarily on product categories and subcategories rather than individual product names.
+
 * **Profit Scope:** The dataset includes product and shipping costs but does not provide a complete set of operating expenses, such as marketing, payroll, warehousing, or administrative costs. Therefore, profit measures reflect the values captured in the dataset rather than full business net income.
 
 * **Incomplete Marketing Data:** Some campaign-name records are blank, limiting campaign-level analysis. Coupon codes are also blank in the available data and could not be used for coupon-level analysis.
-
